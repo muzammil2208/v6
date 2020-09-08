@@ -1,0 +1,27 @@
+
+.container
+{
+    margin-top: 1em;
+}
+.edit
+{
+    
+    text-align: center;
+    width: 100%;
+   
+}
+.delete
+
+{
+    text-align: center;
+    width:100%;
+}
+form
+{
+    margin:20px 0;
+}
+
+#map{
+    height:400px;
+    width:100%;
+}

@@ -1,0 +1,39 @@
+<%- include('../partials/header'); -%>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+            <img src="<%=user.avatar%>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title" style="text-align:center"><%=user.firstname%>  <%=user.lastname%></h5>
+              <p class="card-text"> Email : <%=user.email%></p>
+              <%if(user.isAdmin){%>
+              <p class="card-text">Site Admin</p>
+              <%}%>
+              <a href="/campground" class="btn btn-primary">Go back to campgrounds page</a>
+            </div>
+          </div>
+        
+        </div>
+        <div class="col-sm-8">
+            <h2>Campgrounds Created</h2>
+            <div class="row" style="display:flex; flex-wrap: wrap;">
+                <%user.campgrounds.forEach(function(camp){%>
+                    <div class="col-md-3 col-sm-6 mt-3" style="height: 200px; width:200px" >
+                        <div class="img-thumbnail" >
+                        <img src="<%=camp.image%>" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">
+                             <%=camp.name%>
+                            </h5>
+                            <p class="text-center"><a href="/campground/<%=camp._id%>" class="btn btn-primary">More info</a></p>
+                        </div>
+                       </div>
+                        
+                    </div>
+                <%})%>
+            </div>   
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer'); -%>

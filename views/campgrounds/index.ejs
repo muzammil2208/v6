@@ -1,0 +1,37 @@
+<%- include('../partials/header'); -%>
+
+<div class="container">
+    <%if(currentuser && currentuser.isAdmin){%>
+        <h1>Welcome Admin!</h1>
+    <%}%>
+    <header class="jumbotron">
+        <div class="container">
+         <h1><i class="fas fa-campground"></i>Welcome to Camp ME!</h1>
+         <p>View our handpicked camping sites near you</p>
+        
+         <a href="http://localhost:2/campground/new" class="btn btn-primary btn-lg">Add new Campgrounds</a>
+         <form action="/campground" method="get" class="form-inline">
+            <input type="text" name="search" placeholder="Search campground">
+            <button type="submit" value="search"><i class="fa fa-search"></i></button>   
+        </form>
+        </div>
+    </header>  
+
+        <div class="row" style="display:flex; flex-wrap: wrap;">
+            <%campgrounds.forEach(function(camp){%>
+                <div class="col-md-3 col-sm-6 mt-3" >
+                    <div class="img-thumbnail" >
+                    <img src="<%=camp.image%>" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">
+                         <%=camp.name%>
+                        </h5>
+                        <p class="text-center"><a href="/campground/<%=camp._id%>" class="btn btn-primary">More info</a></p>
+                    </div>
+                </div>
+                    
+                </div>
+            <%})%>
+        </div>   
+</div>
+<%- include('../partials/footer'); -%>
